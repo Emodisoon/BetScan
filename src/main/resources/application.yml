@@ -1,0 +1,43 @@
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${PORT:8080}
+spring:
+  application:
+    name: bet-scan
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+logging:
+  file:
+    name: ${SCANNER_DIAGNOSTICS_DIRECTORY:diagnostics}/application.log
+  logback:
+    rollingpolicy:
+      max-file-size: 5MB
+      max-history: 2
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+scanner:
+  enabled: ${SCANNER_ENABLED:true}
+  headless: ${SCANNER_HEADLESS:true}
+  browser-channel: ${SCANNER_BROWSER_CHANNEL:}
+  proxy: ${SCANNER_PROXY:}
+  timeout-ms: 30000
+  settle-ms: 1500
+  max-scrolls: 60
+  max-matches: 3000
+  stale-after-ms: 600000
+  interval-ms: ${SCANNER_INTERVAL_MS:300000}
+  initial-delay-ms: 5000
+  diagnostics-directory: ${SCANNER_DIAGNOSTICS_DIRECTORY:diagnostics}
+  # Deliberately unset: inspect real DOM before assigning market/row selectors.
+  # Override with ./config/application.yml after the first diagnostic run.
+  sites:
+    BETBOOM:
+      url: https://betboom.ru/sport/football?period=all
+      start-time-attribute: datetime
+    PARI:
+      url: https://pari.ru/sports/football
+      start-time-attribute: datetime

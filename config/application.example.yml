@@ -1,0 +1,17 @@
+# Synthetic selector contract ONLY. These are not verified BetBoom/PARI selectors.
+# Do not rename to application.yml until real selectors are obtained from diagnostics.
+scanner:
+  sites:
+    PARI:
+      ready-selector: '.football-prematch'
+      row: '.football-prematch .event'
+      home-team: '.home'
+      away-team: '.away'
+      start-time: 'time'
+      start-time-attribute: 'datetime' # Empty string => visible text in Europe/Moscow.
+      event-link: 'a.event-link'
+      home-price: '.full-time-1x2 .home-price'
+      draw-price: '.full-time-1x2 .draw-price'
+      away-price: '.full-time-1x2 .away-price'
+      live-marker: '.live'
+      scroll-container: '' # Empty string => document.scrollingElement.

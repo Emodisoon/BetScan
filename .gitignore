@@ -1,0 +1,10 @@
+/target/
+/.tools/
+/data/
+/diagnostics/
+/*-inspect.html
+/.idea/
+*.iml
+.env
+/diagnostics.zip
+/config/application.yml
